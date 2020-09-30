@@ -20,15 +20,6 @@ exports.createTodo = function(req, res){
   })
 }
 
-exports.getTodo = function(req, res){
-   db.Todo.findById(req.params.todoId)
-   .then(function(foundTodo){
-       res.json(foundTodo);
-   })
-   .catch(function(err){
-       res.send(err);
-   })
-}
 
 exports.updateTodo =  function(req, res){
    db.Todo.findOneAndUpdate({_id: req.params.todoId}, req.body, {new: true})
